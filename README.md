@@ -1,28 +1,28 @@
-# Getting Started with This Project
+# Getting Started with Scandinawian World Test Assigment
 
-To quickly set up and run your project using Docker Compose, follow these steps:
+To quickly set up and run this project using Docker Compose, follow these steps:
 
-## Start all containers and build (if necessary):
+1. Start all containers and build (if necessary):
 ```console
 docker-compose up --build -d
 ```
 
-## Install PHP dependencies using Composer:
+2. Install PHP dependencies using Composer:
 ```console
 docker-compose exec app composer install
 ```
 
-## Generate a Laravel application key:
+3. Generate a Laravel application key:
 ```console
 docker-compose exec app php artisan key:generate
 ```
 
-## Install Node.js dependencies using npm:
+4. Install Node.js dependencies using npm:
 ```console
 docker-compose exec vite npm install
 ```
 
-## Start the development process for Vite:
+5. Start the development process for Vite:
 ```code
 docker-compose exec vite npm run dev
 ```
