@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: app.dockerfile
       args:
         user: sw-test
         uid: 1000
@@ -28,7 +28,9 @@ services:
       - sw-test
 
   vite:
-    image: node:18-alpine
+    build:
+      context: ./
+      dockerfile: Dockerfile.node
     container_name: sw-test-vite
     restart: unless-stopped
     working_dir: /var/www
