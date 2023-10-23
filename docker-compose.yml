@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        user: sw-test
+        uid: 1000
+    container_name: sw-test-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - sw-test
+
+  nginx:
+    image: nginx:1.24-alpine
+    container_name: sw-test-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+      - ./:/var/www
+    networks:
+      - sw-test
+
+  vite:
+    image: node:18
+    container_name: sw-test-vite
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - sw-test
+
+networks:
+  sw-test:
+    driver: bridge
