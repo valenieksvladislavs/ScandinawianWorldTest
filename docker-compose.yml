@@ -30,7 +30,7 @@ services:
   vite:
     build:
       context: ./
-      dockerfile: Dockerfile.node
+      dockerfile: vite.dockerfile
     container_name: sw-test-vite
     restart: unless-stopped
     working_dir: /var/www
