@@ -7,6 +7,7 @@ ARG uid
 # Install system dependencies
 USER root
 RUN apt-get update && apt-get install -y \
+    gnupg \
     git \
     curl \
     libpng-dev \
@@ -20,6 +21,10 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+
+# Install Node.js and npm
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get update && apt-get install -y nodejs
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
