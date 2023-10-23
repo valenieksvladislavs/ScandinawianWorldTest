@@ -27,4 +27,4 @@ docker-compose exec vite npm install
 docker-compose exec vite npm run dev
 ```
 
-By following these steps, you'll be able to quickly set up and run your project in a Docker environment.
+Once you've completed these steps, you can access the application by navigating to http://localhost:8000 in your web browser.
