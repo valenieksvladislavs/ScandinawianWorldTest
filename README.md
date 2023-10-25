@@ -19,12 +19,12 @@ docker-compose exec app php artisan key:generate
 
 4. Install Node.js dependencies using npm:
 ```console
-docker-compose exec vite npm install
+docker-compose exec app npm install
 ```
 
 5. Start the development process for Vite:
 ```code
-docker-compose exec vite npm run dev
+docker-compose exec app npm run dev
 ```
 
 Once you've completed these steps, you can access the application by navigating to http://localhost:8000 in your web browser.
